@@ -21,9 +21,6 @@ try {
     exit('Erreur de connexion à la base de données : ' . $e->getMessage());
 }
 
-/**
- * Échappe une valeur pour l'affichage HTML.
- */
 function e(null|string|int|float $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
@@ -42,9 +39,7 @@ function getClassesDisponibles(): array
     return ['ILCS-1A', 'ILCS-1B', 'ILCS-2A', 'ILCS-2B', 'ILCS-3A'];
 }
 
-/**
- * Récupère un étudiant par son identifiant.
- */
+
 function getStudentById(PDO $pdo, int $id): ?array
 {
     $stmt = $pdo->prepare('SELECT * FROM etudiant WHERE id = :id');
