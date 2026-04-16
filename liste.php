@@ -10,7 +10,7 @@ $recherche = trim($_GET['recherche'] ?? '');
 $classe = trim($_GET['classe'] ?? '');
 $flash = getFlashMessage($_GET['msg'] ?? null);
 
-// Construction dynamique et sécurisée de la requête de recherche.
+
 $sql = 'SELECT * FROM etudiant WHERE 1=1';
 $params = [];
 
