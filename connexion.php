@@ -1,12 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Connexion PDO centralisée.
- *
- * Si votre environnement local utilise d'autres identifiants MySQL,
- * modifiez simplement les 4 variables ci-dessous.
- */
 $host = 'localhost';
 $dbname = 'ecole';
 $user = 'root';
@@ -35,18 +29,14 @@ function e(null|string|int|float $value): string
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-/**
- * Redirection HTTP centralisée.
- */
+
 function redirectTo(string $url): never
 {
     header('Location: ' . $url);
     exit;
 }
 
-/**
- * Liste des classes proposées dans les formulaires.
- */
+
 function getClassesDisponibles(): array
 {
     return ['ILCS-1A', 'ILCS-1B', 'ILCS-2A', 'ILCS-2B', 'ILCS-3A'];
@@ -65,9 +55,7 @@ function getStudentById(PDO $pdo, int $id): ?array
     return $etudiant ?: null;
 }
 
-/**
- * Valide une date au format YYYY-MM-DD.
- */
+
 function isValidDate(?string $date): bool
 {
     if ($date === null || $date === '') {
@@ -79,9 +67,6 @@ function isValidDate(?string $date): bool
     return $objetDate instanceof DateTime && $objetDate->format('Y-m-d') === $date;
 }
 
-/**
- * Convertit un code de message en alerte Bootstrap.
- */
 function getFlashMessage(?string $code): ?array
 {
     return match ($code) {
