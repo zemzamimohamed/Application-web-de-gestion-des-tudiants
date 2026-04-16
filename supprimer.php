@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 require_once 'connexion.php';
 
-// Suppression en POST pour éviter les suppressions accidentelles via URL.
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirectTo('liste.php');
 }
